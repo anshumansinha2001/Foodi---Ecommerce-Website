@@ -3,6 +3,8 @@ import Cards from "../../components/Cards";
 import { FaFilter } from "react-icons/fa";
 
 const Menu = () => {
+  const API = import.meta.env.VITE_APP_URI_API;
+
   const [menu, setMenu] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("all"); //for style
@@ -15,7 +17,7 @@ const Menu = () => {
     // Fetching data from backend
     const fetchData = async () => {
       try {
-        const responce = await fetch("http://localhost:3000/menu");
+        const responce = await fetch(`${API}/menu`);
         const data = await responce.json();
         // console.log(data);
         setMenu(data);

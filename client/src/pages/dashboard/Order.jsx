@@ -4,6 +4,8 @@ import useAuth from "../../hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 
 const Order = () => {
+  const API = import.meta.env.VITE_APP_URI_API;
+
   const { user } = useAuth();
   const token = localStorage.getItem("access-token");
 
@@ -11,14 +13,11 @@ const Order = () => {
   const { refetch, data: orders = [] } = useQuery({
     queryKey: ["orders", user?.email],
     queryFn: async () => {
-      const res = await fetch(
-        `http://localhost:3000/payments?email=${user?.email}`,
-        {
-          headers: {
-            authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const res = await fetch(`${API}/payments?email=${user?.email}`, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      });
       return res.json();
     },
   });

@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const CartPage = () => {
+  const API = import.meta.env.VITE_APP_URI_API;
+
   const { user } = useContext(AuthContext);
   const [cart, refetch] = useCart();
   const [cartItems, setCartItems] = useState([]);
@@ -21,7 +23,7 @@ const CartPage = () => {
   // Handle Quantity increase
   const handleIncrease = async (item) => {
     try {
-      const response = await fetch(`http://localhost:3000/cart/${item._id}`, {
+      const response = await fetch(`${API}/cart/${item._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -52,7 +54,7 @@ const CartPage = () => {
   const handleDecrease = async (item) => {
     if (item.quantity > 1) {
       try {
-        const response = await fetch(`http://localhost:3000/cart/${item._id}`, {
+        const response = await fetch(`${API}/cart/${item._id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",

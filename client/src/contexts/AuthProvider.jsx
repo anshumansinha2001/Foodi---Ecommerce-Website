@@ -13,6 +13,8 @@ import {
 import app from "../firebase/firebase.config";
 import axios from "axios";
 
+const API = import.meta.env.VITE_APP_URI_API;
+
 export const AuthContext = createContext();
 
 // Initialize Firebase Authentication and get a reference to the service
@@ -60,7 +62,7 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser);
       if (currentUser) {
         const userInfo = { email: currentUser.email };
-        axios.post("http://localhost:3000/jwt", userInfo).then((response) => {
+        axios.post(`${API}/jwt`, userInfo).then((response) => {
           // console.log(response.data);
           if (response.data.token) {
             localStorage.setItem("access-token", response.data.token);

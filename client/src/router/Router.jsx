@@ -21,6 +21,8 @@ import Testimonials from "../pages/home/Testimonials";
 import SpecialDishes from "../pages/home/SpecialDishes";
 import Settings from "../pages/home/Settings";
 
+const API = import.meta.env.VITE_APP_URI_API;
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -113,8 +115,7 @@ const router = createBrowserRouter([
       {
         path: "update-menu/:id",
         element: <UpdateMenu />,
-        loader: ({ params }) =>
-          fetch(`http://localhost:3000/menu/${params.id}`),
+        loader: ({ params }) => fetch(`${API}/menu/${params.id}`),
       },
     ],
   },

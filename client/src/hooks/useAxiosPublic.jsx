@@ -1,7 +1,8 @@
 import axios from "axios";
 
+const API = import.meta.env.VITE_APP_URI_API;
 const axiosPublic = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: `${API}`,
 });
 
 const useAxiosPublic = () => {

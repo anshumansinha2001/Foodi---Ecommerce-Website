@@ -7,6 +7,7 @@ import useCart from "../hooks/useCart";
 import axios from "axios";
 
 const Cards = ({ item }) => {
+  const API = import.meta.env.VITE_APP_URI_API;
   const { _id, name, recipe, image, price } = item;
   const [cart, refetch] = useCart();
   const { user } = useContext(AuthContext);
@@ -30,7 +31,7 @@ const Cards = ({ item }) => {
       };
 
       axios
-        .post("http://localhost:3000/cart", cartItem)
+        .post(`${API}/cart`, cartItem)
         .then((response) => {
           if (response) {
             refetch();
