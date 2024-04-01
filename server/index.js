@@ -10,8 +10,16 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 //? Database connection call
 connectDB();
 
+// Handling CORS policy issue which occurs due to run two diffrent servers for frontend or backend
+const corsOption = {
+  origin: process.env.BASE_URL,
+  method: "GET, POST, PUT, DELETE, PATCH, HEAD",
+  credentials: true,
+};
+app.use(cors(corsOption));
+
 //? MiddleWare
-app.use(cors());
+// app.use(cors());
 app.use(express.json());
 
 //? JWT Authentication
