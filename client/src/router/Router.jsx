@@ -20,6 +20,7 @@ import OurServices from "../pages/home/OurServices";
 import Testimonials from "../pages/home/Testimonials";
 import SpecialDishes from "../pages/home/SpecialDishes";
 import Settings from "../pages/home/Settings";
+import DisplayItem from "../pages/shop/DisplayItem";
 
 const API = import.meta.env.VITE_APP_URI_API;
 
@@ -51,6 +52,11 @@ const router = createBrowserRouter([
       {
         path: "/contact-us",
         element: <ContactUs />,
+      },
+      {
+        path: "menu/:id",
+        element: <DisplayItem />,
+        loader: ({ params }) => fetch(`${API}/menu/${params.id}`),
       },
       {
         path: "/order",
