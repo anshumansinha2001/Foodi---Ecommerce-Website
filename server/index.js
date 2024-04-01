@@ -7,17 +7,11 @@ const port = process.env.PORT || 3000;
 const jwt = require("jsonwebtoken");
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
+//? Database connection call
 connectDB();
 
-// Configure CORS
-const corsOptions = {
-  origin: "http://localhost:5173",
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  allowedHeaders: "Content-Type,Authorization",
-};
-
 //? MiddleWare
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 
 //? JWT Authentication
