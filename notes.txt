@@ -1,0 +1,30 @@
+<-- For FRONTEND -->
+
+1. Sweet Alert2 (for fancy alerts)
+
+2. React slick-carousel (for carousel with buttons)
+
+3. react-hook-form (it completely handle the form validation and all)
+
+4. daisyUI (Tailwind css components for nav, footer, mode, etc..)
+
+5. TanStack Query (it makes fetching, caching, synchronizing and updating server state in your web applications a breeze.)
+
+6. React Router dom (for Router, Links, Navigate, etc...)
+
+7. react-toastify (alert css)
+
+8. react-icons (Icons LOgo)
+
+
+<-- For BACKEND -->
+
+1. Express
+
+2. MongoDB 
+
+3. jwt Token (auth)
+
+4. imgbb (it helps to upload image and gives URL for store it into the DataBase)
+
+5. Axios (fetching and Posting data to dB)
