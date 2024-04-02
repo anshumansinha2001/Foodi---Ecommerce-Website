@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import useCart from "../../hooks/useCart";
 import { AuthContext } from "../../contexts/AuthProvider";
 import Swal from "sweetalert2";
@@ -14,6 +14,11 @@ const CartPage = () => {
   const [cartItems, setCartItems] = useState([]);
 
   const axiosSecure = useAxiosSecure();
+
+  useEffect(() => {
+    // Scroll to the top of the page when component mounts
+    window.scrollTo(0, 0);
+  }, []);
 
   // Calculate the Total Price for each item in the cart
   const calculateTotalPrice = (item) => {

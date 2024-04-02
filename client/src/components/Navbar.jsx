@@ -161,12 +161,15 @@ const Navbar = () => {
           </label>
 
           {/* Cart btn */}
-          <Link to={user ? "/cart-page" : "/"} className="md:mr-3">
+          <Link
+            to={user ? "/cart-page" : "/"}
+            className="md:mr-3"
+            onClick={checkLogin}
+          >
             <div
               tabIndex={0}
               role="button"
               className="btn btn-ghost btn-circle  flex justify-center"
-              onClick={{ checkLogin, handleClick }}
             >
               <div className="indicator">
                 <svg
@@ -195,7 +198,7 @@ const Navbar = () => {
             <Profile user={user} />
           ) : (
             <button
-              className="btn bg-green rounded-full px-6 text-white flex items-center gap-2 outline-none"
+              className="btn btn-sm md:btn-md bg-green rounded-full md:px-6 text-white flex items-center gap-2 outline-none"
               onClick={() => document.getElementById("my_modal_5").showModal()}
             >
               <FaRegUser /> Login
