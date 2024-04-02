@@ -36,3 +36,28 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
+
+
+/* For Webkit Browsers */
+/* For Chrome, Safari, and Opera */
+::-webkit-scrollbar {
+    width: 6px;
+    /* Adjust as needed */
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    /* Track color */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #000;
+    /* Thumb color */
+}
+
+/* Show scrollbar on hover */
+body:hover::-webkit-scrollbar-thumb {
+    background: #555;
+    /* Thumb color on hover */
+}
