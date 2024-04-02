@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { MdDashboard, MdDashboardCustomize } from "react-icons/md";
 import {
@@ -48,6 +48,11 @@ const DashboardLayout = () => {
   const { logOut } = useAuth();
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Scroll to the top of the page when component mounts
+    window.scrollTo(0, 0);
+  }, []);
 
   // Handle Logout
   const handleLogout = () => {

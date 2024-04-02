@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLoaderData, Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
@@ -21,10 +21,10 @@ const DisplayItem = () => {
 
   const navigate = useNavigate();
 
-  // Scroll to the top of the page when user click
-  const handleClick = () => {
+  useEffect(() => {
+    // Scroll to the top of the page when component mounts
     window.scrollTo(0, 0);
-  };
+  }, []);
 
   //Add to cart Handler btn
   const handleAddToCart = (item) => {
@@ -110,10 +110,7 @@ const DisplayItem = () => {
 
         {itemAdded ? (
           <Link to="/process-checkout">
-            <button
-              className="btn md:btn-lg btn-wide bg-red text-white"
-              onClick={handleClick}
-            >
+            <button className="btn md:btn-lg btn-wide bg-red text-white">
               Procceed to Checkout
             </button>
           </Link>

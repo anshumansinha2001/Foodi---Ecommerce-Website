@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import logo from "/logo.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaRegUser } from "react-icons/fa";
 import Modal from "./Modal";
 import Profile from "./Profile";
@@ -15,30 +15,6 @@ const Navbar = () => {
 
   const [cart, refetch] = useCart();
 
-  // Scroll to the top of the page when user click
-  const handleClick = () => {
-    window.scrollTo(0, 0);
-  };
-
-  //Handling Scroll Functions
-  useEffect(() => {
-    const handleScroll = () => {
-      const offset = window.scrollY;
-      if (offset > 0) {
-        setSticky(true);
-      } else {
-        setSticky(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    refetch();
-
-    return () => {
-      window.addEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   // Check user is login
   const checkLogin = () => {
     if (!user) {
@@ -49,17 +25,17 @@ const Navbar = () => {
   const navItems = (
     <>
       <li>
-        <Link to="/" className="text-green mx-1" onClick={handleClick}>
+        <Link to="/" className="text-green mx-1">
           Home
         </Link>
       </li>
       <li>
-        <Link to="/menu" className="mx-1" onClick={handleClick}>
+        <Link to="/menu" className="mx-1">
           Menu
         </Link>
       </li>
       <li>
-        <Link to="/special-dishes" className="mx-1" onClick={handleClick}>
+        <Link to="/special-dishes" className="mx-1">
           Offers
         </Link>
       </li>
@@ -69,19 +45,13 @@ const Navbar = () => {
           <summary className="mx-1">Explore</summary>
           <ul className="p-2">
             <li>
-              <Link to="/services" onClick={handleClick}>
-                Services
-              </Link>
+              <Link to="/services">Services</Link>
             </li>
             <li>
-              <Link to="/testimonials" onClick={handleClick}>
-                Testimonials
-              </Link>
+              <Link to="/testimonials">Testimonials</Link>
             </li>
             <li>
-              <Link to="/contact-us" onClick={handleClick}>
-                Contact Us
-              </Link>
+              <Link to="/contact-us">Contact Us</Link>
             </li>
           </ul>
         </details>
@@ -123,7 +93,7 @@ const Navbar = () => {
               {navItems}
             </ul>
           </div>
-          <Link to="/" onClick={handleClick}>
+          <Link to="/">
             <img src={logo} className="w-20 md:w-full" alt="logo" />
           </Link>
         </div>

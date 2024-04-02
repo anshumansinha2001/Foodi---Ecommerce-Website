@@ -11,11 +11,6 @@ import { IoLogOut } from "react-icons/io5";
 const Profile = ({ user }) => {
   const { logOut } = useContext(AuthContext);
 
-  // Scroll to the top of the page when user click
-  const handleClick = () => {
-    window.scrollTo(0, 0);
-  };
-
   //Logout User
   const handlelogout = () => {
     logOut()
@@ -67,30 +62,30 @@ const Profile = ({ user }) => {
               )}
             </li>
             <li>
-              <Link to="/update-profile" onClick={handleClick}>
+              <Link to="/update-profile">
                 <CgProfile className="text-xl" />
                 Profile
               </Link>
             </li>
             <li>
-              <Link to="/dashboard" onClick={handleClick}>
+              <Link to="/dashboard">
                 <MdAdminPanelSettings className="text-xl" />
                 Dashboard
               </Link>
             </li>
             <li>
-              <Link to="/order" onClick={handleClick}>
+              <Link to="/order">
                 <FaUtensils className="text-md ml-1" />
                 My Order
               </Link>
             </li>
             <li>
-              <Link to="/settings" onClick={handleClick}>
+              <Link to="/settings">
                 <IoMdSettings className="text-xl" /> Setting
               </Link>
             </li>
             <li>
-              <Link to="/contact-us" onClick={handleClick}>
+              <Link to="/contact-us">
                 <MdOutlineSupportAgent className="text-xl" /> Support
               </Link>
             </li>

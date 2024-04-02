@@ -27,6 +27,9 @@ const UpdateProfile = () => {
   const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
   useEffect(() => {
+    // Scroll to the top of the page when component mounts
+    window.scrollTo(0, 0);
+
     // Set the default value of the input fields using setValue
     setValue("name", user.displayName);
     setValue("photoURL", user.photoURL);

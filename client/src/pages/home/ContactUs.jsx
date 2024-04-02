@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 const ContactUs = () => {
   const [result, setResult] = useState("");
 
   const ACCESS_KEY = import.meta.env.VITE_WEB3_ACCESS_KEY;
+
+  useEffect(() => {
+    // Scroll to the top of the page when component mounts
+    window.scrollTo(0, 0);
+  }, []);
 
   // Handle Submit Form
   const onSubmit = async (event) => {

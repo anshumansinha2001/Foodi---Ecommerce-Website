@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const serviceLists = [
   {
@@ -28,6 +28,11 @@ const serviceLists = [
 ];
 
 const OurServices = () => {
+  useEffect(() => {
+    // Scroll to the top of the page when component mounts
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="section-container my-16">
       <div className="flex flex-col md:flex-row items-center justify-between gap-12">

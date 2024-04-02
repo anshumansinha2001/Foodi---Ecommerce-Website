@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaStar } from "react-icons/fa";
 
 const Testimonials = () => {
+  useEffect(() => {
+    // Scroll to the top of the page when component mounts
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="section-container">
       <div className="flex flex-col md:flex-row items-center justify-between gap-12">

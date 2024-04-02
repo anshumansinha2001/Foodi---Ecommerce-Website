@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
 import { loadStripe } from "@stripe/stripe-js";
@@ -7,6 +7,11 @@ import useCart from "../../hooks/useCart";
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PK);
 const Payment = () => {
   const [cart] = useCart();
+
+  useEffect(() => {
+    // Scroll to the top of the page when component mounts
+    window.scrollTo(0, 0);
+  }, []);
 
   // Calculate the Total Price for each item in the cart
   const calculateTotalPriceForEachItem = (item) => {

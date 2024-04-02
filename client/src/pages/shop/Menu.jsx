@@ -14,6 +14,9 @@ const Menu = () => {
 
   // Loading Data
   useEffect(() => {
+    // Scroll to the top of the page when component mounts
+    window.scrollTo(0, 0);
+
     // Fetching data from backend
     const fetchData = async () => {
       try {

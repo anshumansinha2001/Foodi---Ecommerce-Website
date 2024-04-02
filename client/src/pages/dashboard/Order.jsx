@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
@@ -8,6 +8,11 @@ const Order = () => {
 
   const { user } = useAuth();
   const token = localStorage.getItem("access-token");
+
+  useEffect(() => {
+    // Scroll to the top of the page when component mounts
+    window.scrollTo(0, 0);
+  }, []);
 
   //Fetching the Order Details from Backend
   const { refetch, data: orders = [] } = useQuery({

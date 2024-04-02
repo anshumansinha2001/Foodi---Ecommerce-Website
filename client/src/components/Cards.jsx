@@ -17,11 +17,6 @@ const Cards = ({ item }) => {
 
   const [isHeartFilled, setIsHeartFilled] = useState(false);
 
-  // Scroll to the top of the page when user click
-  const handleClick = () => {
-    window.scrollTo(0, 0);
-  };
-
   //Add to cart Handler btn
   const handleAddToCart = (item) => {
     // console.log(item);
@@ -92,7 +87,7 @@ const Cards = ({ item }) => {
       >
         <FaHeart className="w-5 h-5 cursor-pointer" />
       </div>
-      <Link to={`/menu/${item._id}`} onClick={handleClick}>
+      <Link to={`/menu/${item._id}`}>
         <figure className=" rounded-lg">
           <img
             src={item.image}
