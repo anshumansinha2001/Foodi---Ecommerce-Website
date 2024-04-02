@@ -50,11 +50,13 @@ const Profile = ({ user }) => {
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+          <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content gap-2 text-lg">
             {/* Sidebar content here */}
             <li>
               {user.displayName ? (
-                <h3 className="font-semibold">{user.displayName}</h3>
+                <h3 className="font-semibold bg-black text-white">
+                  {user.displayName}
+                </h3>
               ) : (
                 <div>
                   <h3 className="font-semibold">Welcome User!</h3>

@@ -76,11 +76,12 @@ const DashboardLayout = () => {
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col lg:items-center lg:justify-start">
               {/* Page content here */}
-              <div className="flex mt-2 items-center justify-between mx-4">
+              <div className="flex p-2 items-center justify-between fixed top-0 left-0 right-0 z-10 bg-white lg:hidden">
                 <label
                   htmlFor="my-drawer-2"
                   className="btn btn-primary drawer-button lg:hidden"
                 >
+                  Admin Panel
                   <MdDashboardCustomize />
                 </label>
                 <button
@@ -90,17 +91,17 @@ const DashboardLayout = () => {
                   <FaRegUser /> Logout
                 </button>
               </div>
-              <div className="mt-5 md:mt-2 mx-4">
+              <div className="mt-14 md:mt-2 mx-4">
                 <Outlet />
               </div>
             </div>
-            <div className="drawer-side">
+            <div className="drawer-side z-20">
               <label
                 htmlFor="my-drawer-2"
                 aria-label="close sidebar"
                 className="drawer-overlay"
               ></label>
-              <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+              <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content gap-2 text-lg">
                 {/* Sidebar content here */}
                 <li>
                   <Link to="/dashboard" className="flex justify-start mb-3">
@@ -115,7 +116,7 @@ const DashboardLayout = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/dashboard">
+                  <Link to="/dashboard/manage-bookings">
                     <FaShoppingBag /> Manage Bookings
                   </Link>
                 </li>

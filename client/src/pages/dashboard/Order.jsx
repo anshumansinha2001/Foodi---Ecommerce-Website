@@ -18,7 +18,7 @@ const Order = () => {
   const { refetch, data: orders = [] } = useQuery({
     queryKey: ["orders", user?.email],
     queryFn: async () => {
-      const res = await fetch(`${API}/payments?email=${user?.email}`, {
+      const res = await fetch(`${API}/payments/${user?.email}`, {
         headers: {
           authorization: `Bearer ${token}`,
         },
@@ -27,7 +27,7 @@ const Order = () => {
     },
   });
 
-  console.log("[ORDER]", orders);
+  // console.log("[ORDER]", orders);
 
   const formatDate = (createdAt) => {
     const createdAtDate = new Date(createdAt);
@@ -51,7 +51,7 @@ const Order = () => {
       {/* Display orders table */}
       {orders.length > 0 ? (
         <div>
-          <div className="overflow-x-auto rounded-md shadow-md">
+          <div className="overflow-x-auto rounded-md shadow-md mb-10">
             <table className="table table-zebra">
               {/* head */}
               <thead className="bg-green text-white text-center">

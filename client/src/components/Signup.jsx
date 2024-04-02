@@ -36,7 +36,7 @@ const Signup = () => {
     const imageFile = { image: data.image[0] };
 
     //if image is not there
-    if (!imageFile.image.name) {
+    if (!imageFile.image?.name) {
       createUser(email, password)
         .then((result) => {
           const user = result.user;

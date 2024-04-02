@@ -21,6 +21,7 @@ import Testimonials from "../pages/home/Testimonials";
 import SpecialDishes from "../pages/home/SpecialDishes";
 import Settings from "../pages/dashboard/Settings";
 import DisplayItem from "../pages/shop/DisplayItem";
+import ManageBooking from "../pages/dashboard/admin/ManageBooking";
 
 const API = import.meta.env.VITE_APP_URI_API;
 
@@ -113,6 +114,10 @@ const router = createBrowserRouter([
       {
         path: "add-menu",
         element: <AddMenu />,
+      },
+      {
+        path: "manage-bookings",
+        element: <ManageBooking />,
       },
       {
         path: "manage-items",

@@ -41,39 +41,41 @@ const UpdateProfile = () => {
     const imageFile = { image: data.image[0] };
 
     try {
-      const hostingImage = await axiosPublic.post(
-        image_hosting_api,
-        imageFile,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-
-      // Check whether image conversion was successful
-      if (hostingImage.data.success) {
-        photoURL = hostingImage.data.data.display_url;
+      // If Image is not upload
+      if (!imageFile.image?.name) {
         updateUserProfile(name, photoURL)
           .then(() => {
             toast.info("Changes saved! Updates may take time.");
             navigate(from, { replace: true });
-            // ...
           })
           .catch((error) => {
             console.log(error.message);
-            toast.warning("Something went wrong!");
           });
       } else {
-        photoURL = data.photoURL;
-        updateUserProfile(name, photoURL)
-          .then(() => {
-            toast.info("Changes saved! Updates may take time.");
-            navigate(from, { replace: true });
-          })
-          .catch((error) => {
-            console.log(error.message);
-          });
+        const hostingImage = await axiosPublic.post(
+          image_hosting_api,
+          imageFile,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+
+        // Check whether image conversion was successful
+        if (hostingImage.data.success) {
+          photoURL = hostingImage.data.data.display_url;
+          updateUserProfile(name, photoURL)
+            .then(() => {
+              toast.info("Changes saved! Updates may take time.");
+              navigate(from, { replace: true });
+              // ...
+            })
+            .catch((error) => {
+              console.log(error.message);
+              toast.warning("Something went wrong!");
+            });
+        }
       }
     } catch (error) {
       console.log(error);

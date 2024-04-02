@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "/logo.png";
 import { Link } from "react-router-dom";
 import { FaRegUser } from "react-icons/fa";
@@ -21,6 +21,25 @@ const Navbar = () => {
       toast.error("You need to Login for access Cart!");
     }
   };
+
+  //Handling Scroll Functions
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = window.scrollY;
+      if (offset > 0) {
+        setSticky(true);
+      } else {
+        setSticky(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    refetch();
+
+    return () => {
+      window.addEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const navItems = (
     <>
