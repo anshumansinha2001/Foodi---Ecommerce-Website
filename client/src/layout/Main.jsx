@@ -15,7 +15,7 @@ const Main = () => {
       ) : (
         <div>
           <Navbar />
-          <div className="min-h-[80vh]">
+          <div className="md:min-h-screen">
             <Outlet />
           </div>
           <Footer />

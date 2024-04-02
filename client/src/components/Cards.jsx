@@ -17,6 +17,11 @@ const Cards = ({ item }) => {
 
   const [isHeartFilled, setIsHeartFilled] = useState(false);
 
+  // Scroll to the top of the page when user click
+  const handleClick = () => {
+    window.scrollTo(0, 0);
+  };
+
   //Add to cart Handler btn
   const handleAddToCart = (item) => {
     // console.log(item);
@@ -59,7 +64,7 @@ const Cards = ({ item }) => {
     } else {
       Swal.fire({
         title: "Oops!",
-        text: "It seems you haven't logged in yet. You need to login for adding items to cart.",
+        text: "You need to login for adding items to your cart.",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
@@ -78,10 +83,7 @@ const Cards = ({ item }) => {
   };
 
   return (
-    <div
-      to={`/menu/${item._id}`}
-      className="card shadow-xl relative mr-5 md:my-5"
-    >
+    <div className="card shadow-xl relative mr-5 md:my-5">
       <div
         className={`rating z-10 gap-1 absolute right-2 top-2 p-4 heartStar bg-green ${
           isHeartFilled ? "text-rose-500" : "text-white"
@@ -90,11 +92,11 @@ const Cards = ({ item }) => {
       >
         <FaHeart className="w-5 h-5 cursor-pointer" />
       </div>
-      <Link to={`/menu/${item._id}`}>
+      <Link to={`/menu/${item._id}`} onClick={handleClick}>
         <figure className=" rounded-lg">
           <img
             src={item.image}
-            alt="Shoes"
+            alt="item"
             className="hover:scale-105 transition-all duration-300 md:h-72"
           />
         </figure>

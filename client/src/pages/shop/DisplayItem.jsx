@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLoaderData, Link } from "react-router-dom";
+import { useLoaderData, Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
@@ -18,6 +18,13 @@ const DisplayItem = () => {
   const [itemAdded, setItemAdded] = useState(false);
 
   const { _id, name, recipe, image, price } = item;
+
+  const navigate = useNavigate();
+
+  // Scroll to the top of the page when user click
+  const handleClick = () => {
+    window.scrollTo(0, 0);
+  };
 
   //Add to cart Handler btn
   const handleAddToCart = (item) => {
@@ -62,7 +69,7 @@ const DisplayItem = () => {
     } else {
       Swal.fire({
         title: "Oops!",
-        text: "It seems you haven't logged in yet. You need to login for adding items to cart.",
+        text: "You need to login for adding items to your cart.",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
@@ -70,7 +77,7 @@ const DisplayItem = () => {
         confirmButtonText: "Login now!",
       }).then((result) => {
         if (result.isConfirmed) {
-          navigate("/login", { state: { from: location } });
+          navigate("/login", { state: true });
         }
       });
     }
@@ -103,7 +110,10 @@ const DisplayItem = () => {
 
         {itemAdded ? (
           <Link to="/process-checkout">
-            <button className="btn md:btn-lg btn-wide bg-red text-white">
+            <button
+              className="btn md:btn-lg btn-wide bg-red text-white"
+              onClick={handleClick}
+            >
               Procceed to Checkout
             </button>
           </Link>

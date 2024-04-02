@@ -15,6 +15,11 @@ const Navbar = () => {
 
   const [cart, refetch] = useCart();
 
+  // Scroll to the top of the page when user click
+  const handleClick = () => {
+    window.scrollTo(0, 0);
+  };
+
   //Handling Scroll Functions
   useEffect(() => {
     const handleScroll = () => {
@@ -44,17 +49,17 @@ const Navbar = () => {
   const navItems = (
     <>
       <li>
-        <Link to="/" className="text-green mx-1">
+        <Link to="/" className="text-green mx-1" onClick={handleClick}>
           Home
         </Link>
       </li>
       <li>
-        <Link to="/menu" className="mx-1">
+        <Link to="/menu" className="mx-1" onClick={handleClick}>
           Menu
         </Link>
       </li>
       <li>
-        <Link to="/special-dishes" className="mx-1">
+        <Link to="/special-dishes" className="mx-1" onClick={handleClick}>
           Offers
         </Link>
       </li>
@@ -64,13 +69,19 @@ const Navbar = () => {
           <summary className="mx-1">Explore</summary>
           <ul className="p-2">
             <li>
-              <Link to="/services">Services</Link>
+              <Link to="/services" onClick={handleClick}>
+                Services
+              </Link>
             </li>
             <li>
-              <Link to="/testimonials">Testimonials</Link>
+              <Link to="/testimonials" onClick={handleClick}>
+                Testimonials
+              </Link>
             </li>
             <li>
-              <Link to="/contact-us">Contact Us</Link>
+              <Link to="/contact-us" onClick={handleClick}>
+                Contact Us
+              </Link>
             </li>
           </ul>
         </details>
@@ -112,7 +123,7 @@ const Navbar = () => {
               {navItems}
             </ul>
           </div>
-          <Link to="/">
+          <Link to="/" onClick={handleClick}>
             <img src={logo} className="w-20 md:w-full" alt="logo" />
           </Link>
         </div>
@@ -155,7 +166,7 @@ const Navbar = () => {
               tabIndex={0}
               role="button"
               className="btn btn-ghost btn-circle  flex justify-center"
-              onClick={checkLogin}
+              onClick={{ checkLogin, handleClick }}
             >
               <div className="indicator">
                 <svg

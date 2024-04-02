@@ -84,30 +84,38 @@ const UpdateProfile = () => {
 
   return (
     <div className="flex items-center justify-center h-screen">
-      <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+      <div className="card shrink-0 w-full max-w-lg shadow-2xl bg-black text-white">
+        {/* Image Area */}
+        <div className="flex justify-between items-center px-8 my-2">
+          <img className="mask mask-square rounded-md" src={user.photoURL} />
+          <div>
+            <h3 className="font-bold text-xl">Update Your Profile 🆔</h3>
+            <p className="text-end text-xs text-base-200 mt-1">{user.email}</p>
+          </div>
+        </div>
+        <hr />
         <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
-          <h3 className="font-bold">Update Your Profile</h3>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Name</span>
+              <span className="label-text text-white">Name</span>
             </label>
             <input
               {...register("name")}
               type="text"
               placeholder="Your Name"
-              className="input input-bordered"
+              className="input input-success border-none text-black"
             />
           </div>
 
           {/* Upload Image */}
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Upload Photo</span>
+              <span className="label-text text-white">Upload Photo</span>
             </label>
             <input
               type="file"
               {...register("image")}
-              className="file-input  w-full"
+              className="file-input input-success border-none text-black  w-full"
             />
           </div>
 

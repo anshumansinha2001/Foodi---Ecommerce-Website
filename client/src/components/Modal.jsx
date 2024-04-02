@@ -56,11 +56,18 @@ const Modal = () => {
           email: result?.user?.email,
           photoURL: result?.user?.photoURL,
         };
-        axiosPublic.post("/users", userInfo).then((response) => {
-          // console.log(response);
-          toast.success("Login Successful!");
-          navigate(from, { replace: true });
-        });
+        axiosPublic
+          .post("/users", userInfo)
+          .then((response) => {
+            toast.success("Login Successful!");
+            navigate(from, { replace: true });
+          })
+          .catch((error) => {
+            console.log(error.response.data.message);
+            if (error.response.data.message === "User Already Exists!") {
+              toast.success("Login Successful!");
+            }
+          });
       })
       .catch((error) => console.log(error.message));
   };
