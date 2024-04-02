@@ -7,7 +7,7 @@ import useCart from "../../hooks/useCart";
 
 const DisplayItem = () => {
   const item = useLoaderData();
-  //   console.log(item);
+  // console.log(item);
 
   const API = import.meta.env.VITE_APP_URI_API;
   const axiosSecure = useAxiosSecure();
@@ -78,7 +78,7 @@ const DisplayItem = () => {
 
   return (
     <div className="section-container">
-      <div className="hero bg-base-200 shadow-2xl rounded-xl md:py-16 mt-20">
+      <div className="hero bg-base-200 shadow-2xl rounded-xl md:py-16 mt-24">
         <div className="hero-content flex-col lg:flex-row justify-between">
           <div className="md:w-1/2 text-center lg:text-left">
             <h1 className="text-3xl md:text-5xl font-bold text-green">
@@ -95,7 +95,7 @@ const DisplayItem = () => {
         </div>
       </div>
 
-      <div className="flex flex-col md:flex-row h-28 md:h-auto items-center justify-between my-16">
+      <div className="flex flex-col md:flex-row h-28 md:h-auto items-center justify-between my-14 md:my-8">
         <div className="font-semibold text-2xl">
           Price: <span className="text-4xl text-green">${item.price}</span>{" "}
           <span className="text-sm  line-through">${item.price + 85}</span>

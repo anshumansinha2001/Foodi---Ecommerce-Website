@@ -5,8 +5,11 @@ import "slick-carousel/slick/slick-theme.css";
 import Cards from "../../components/Cards";
 import { FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
 
+const API = import.meta.env.VITE_APP_URI_API;
+
 const SampleNextArrow = (props) => {
   const { className, style, onClick } = props;
+
   return (
     <div
       className={className}
@@ -35,14 +38,24 @@ const SpecialDishes = () => {
   const [recipes, setRecipes] = useState([]);
   const slider = React.useRef(null);
 
+  // Loading Data
   useEffect(() => {
-    fetch("/menu.json")
-      .then((res) => res.json())
-      .then((data) => {
-        const specials = data.filter((item) => item.category === "popular");
-        // console.log(specials)
-        setRecipes(specials);
-      });
+    // Fetching data from backend
+    const fetchData = async () => {
+      try {
+        const responce = await fetch(`${API}/menu`)
+          .then((res) => res.json())
+          .then((data) => {
+            const specials = data.filter((item) => item.category === "popular");
+            // console.log(specials)
+            setRecipes(specials);
+          });
+      } catch (error) {
+        console.log("error fetching data: ", error);
+      }
+    };
+
+    fetchData();
   }, []);
 
   const settings = {
