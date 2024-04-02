@@ -242,7 +242,7 @@ const CartPage = () => {
           />
           <p>Cart is empty. Please add products😎.</p>
           <Link to="/menu">
-            <button className="btn bg-green text-white mt-6">
+            <button className="btn bg-green text-white my-6">
               Back to Menu
             </button>
           </Link>

@@ -10,7 +10,7 @@ const Settings = () => {
         />
         <p className="font-semibold">Oops! Sorry yet we're working on it😢.</p>
         <Link to="/">
-          <button className="btn bg-green text-white mt-10">
+          <button className="btn bg-green text-white my-10">
             Back to Home
           </button>
         </Link>

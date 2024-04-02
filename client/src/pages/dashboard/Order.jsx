@@ -110,7 +110,7 @@ const Order = () => {
           />
           <p>You have not made any order lately! Go and do it now🥹.</p>
           <Link to="/menu">
-            <button className="btn bg-green text-white mt-6">
+            <button className="btn bg-green text-white my-6">
               Back to Shoping
             </button>
           </Link>

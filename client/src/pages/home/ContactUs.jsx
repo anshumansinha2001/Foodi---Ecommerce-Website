@@ -46,7 +46,7 @@ const ContactUs = () => {
       </div>
 
       {/* ContactUS Section*/}
-      <div className="hero bg-base-200 shadow md:py-20">
+      <div className="hero bg-base-200 shadow md:py-20 py-8">
         <div className="hero-content flex-col lg:flex-row justify-between">
           <div className="md:w-1/2 text-center lg:text-left">
             <h1 className="text-3xl md:text-5xl font-bold text-green">
@@ -63,7 +63,7 @@ const ContactUs = () => {
           </div>
 
           {/* FORM SECTION */}
-          <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <div className="card mx-auto shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form className="card-body" onSubmit={onSubmit}>
               {/* Name */}
               <div className="form-control">

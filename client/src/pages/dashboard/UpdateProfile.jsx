@@ -84,17 +84,23 @@ const UpdateProfile = () => {
 
   return (
     <div className="flex items-center justify-center h-screen">
-      <div className="card shrink-0 w-full max-w-lg shadow-2xl bg-black text-white">
-        {/* Image Area */}
-        <div className="flex justify-between items-center px-8 my-2">
-          <img className="mask mask-square rounded-md" src={user.photoURL} />
+      <div className="relative rounded-xl md:w-[60%] shadow-2xl bg-black text-white">
+        <div className="flex justify-between items-center md:px-8 px-4 my-2">
+          {/* Image Area */}
+          <div className="w-32">
+            <img className="mask mask-square rounded-xl" src={user.photoURL} />
+          </div>
           <div>
-            <h3 className="font-bold text-xl">Update Your Profile 🆔</h3>
+            <h3 className="font-bold md:text-xl">Update Your Profile 🆔</h3>
             <p className="text-end text-xs text-base-200 mt-1">{user.email}</p>
           </div>
         </div>
         <hr />
-        <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
+
+        <form
+          className="md:card-body px-4 py-8"
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <div className="form-control">
             <label className="label">
               <span className="label-text text-white">Name</span>

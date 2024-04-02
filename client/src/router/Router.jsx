@@ -19,7 +19,7 @@ import ContactUs from "../pages/home/ContactUs";
 import OurServices from "../pages/home/OurServices";
 import Testimonials from "../pages/home/Testimonials";
 import SpecialDishes from "../pages/home/SpecialDishes";
-import Settings from "../pages/home/Settings";
+import Settings from "../pages/dashboard/Settings";
 import DisplayItem from "../pages/shop/DisplayItem";
 
 const API = import.meta.env.VITE_APP_URI_API;
